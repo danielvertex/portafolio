@@ -1,0 +1,55 @@
+---
+title: "Google Data Analytics Capstone"
+description: "End-to-end case study in R analyzing user behavior for a bike-share company. Cleaned, analyzed, and visualized data to provide strategic recommendations."
+category: "Data"
+status: "Completed"
+github: "https://github.com/danielvertex/google-data-analytics"
+---
+
+This capstone project is the culmination of the Google Data Analytics Professional Certificate. It involves an end-to-end analysis of a fictional bike-share company, Cyclistic, to understand how annual members and casual riders use the service differently.
+
+## The Business Problem
+
+Cyclistic's finance analysts have concluded that annual members are much more profitable than casual riders. The director of marketing believes that maximizing the number of annual members will be key to future growth. Rather than creating a marketing campaign that targets all-new customers, there is a very good chance to convert casual riders into members.
+
+**Objective:** Design marketing strategies aimed at converting casual riders into annual members. In order to do that, the marketing analyst team needs to better understand how annual members and casual riders differ.
+
+## The Data
+
+I used 12 months of historical trip data (January 2023 - December 2023). The data is public and anonymized.
+
+**Data Preparation & Cleaning:**
+- Imported 12 CSV files and merged them into a single data frame using R.
+- Removed trips that were less than 1 minute or longer than 24 hours (likely errors or maintenance trips).
+- Extracted day of the week, month, and trip duration from the timestamp data.
+- Handled missing values (stations with NULL names).
+
+## The Analysis
+
+Using `tidyverse` and `ggplot2` in R, I analyzed the behavior patterns.
+
+### Key Insights:
+
+1.  **Usage Volume by Day:**
+    - Annual members ride consistently throughout the workweek, indicating commuting behavior.
+    - Casual riders peak heavily on weekends.
+
+2.  **Average Ride Duration:**
+    - Casual riders take significantly longer rides on average (often double the duration of members).
+    - Members take shorter, more predictable trips.
+
+3.  **Seasonality:**
+    - Both groups peak in the summer months, but casual riders drop off much more sharply in the winter compared to members.
+
+## Strategic Recommendations
+
+Based on the data, I proposed the following strategies to the marketing team:
+
+1.  **Weekend Membership Plan:** Since casual riders are highly active on weekends, offer a specialized "Weekend Only" membership that serves as a stepping stone to a full annual membership.
+2.  **Seasonal Campaigns:** Launch conversion campaigns in late Spring/early Summer when casual ridership begins to spike.
+3.  **Duration-Based Incentives:** Create targeted ads highlighting how much money a casual rider would save on their longer rides if they switched to an annual membership.
+
+## Technologies Used
+- **Language:** R
+- **Libraries:** `tidyverse`, `ggplot2`, `lubridate`, `janitor`
+- **Environment:** RStudio / RMarkdown

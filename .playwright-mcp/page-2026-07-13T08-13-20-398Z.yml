@@ -1,0 +1,107 @@
+- generic [active] [ref=f6e1]:
+  - banner:
+    - navigation [ref=f6e2]:
+      - generic [ref=f6e3]:
+        - link "Daniel Herrera" [ref=f6e4] [cursor=pointer]:
+          - /url: /
+        - list [ref=f6e6]:
+          - listitem [ref=f6e7]:
+            - link "about" [ref=f6e8] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f6e9]:
+            - link "blog (current)" [ref=f6e10] [cursor=pointer]:
+              - /url: /blog/
+              - text: blog
+              - generic [ref=f6e11]: (current)
+          - listitem [ref=f6e12]:
+            - link "projects" [ref=f6e13] [cursor=pointer]:
+              - /url: /projects/
+          - listitem [ref=f6e14]:
+            - button "submenus (current)" [ref=f6e15] [cursor=pointer]:
+              - text: submenus
+              - generic [ref=f6e16]: (current)
+          - listitem [ref=f6e17]:
+            - button "ctrl k " [ref=f6e18] [cursor=pointer]:
+              - generic [ref=f6e19]:
+                - text: ctrl k
+                - generic [ref=f6e20]: 
+          - listitem [ref=f6e21]:
+            - button "" [ref=f6e22] [cursor=pointer]:  
+    - progressbar [ref=f6e24]
+  - main [ref=f6e25]:
+    - generic [ref=f6e26]:
+      - generic [ref=f6e27]:
+        - heading "Daniel's Blog" [level=1] [ref=f6e28]
+        - heading [level=2]
+      - list [ref=f6e30]:
+        - listitem [ref=f6e31]:
+          - generic [ref=f6e32]: "#"
+          - link "formatting" [ref=f6e33] [cursor=pointer]:
+            - /url: /blog/tag/formatting
+        - paragraph [ref=f6e34]: •
+        - listitem [ref=f6e35]:
+          - generic [ref=f6e36]: "#"
+          - link "images" [ref=f6e37] [cursor=pointer]:
+            - /url: /blog/tag/images
+        - paragraph [ref=f6e38]: •
+        - listitem [ref=f6e39]:
+          - generic [ref=f6e40]: "#"
+          - link "links" [ref=f6e41] [cursor=pointer]:
+            - /url: /blog/tag/links
+        - paragraph [ref=f6e42]: •
+        - listitem [ref=f6e43]:
+          - generic [ref=f6e44]: "#"
+          - link "math" [ref=f6e45] [cursor=pointer]:
+            - /url: /blog/tag/math
+        - paragraph [ref=f6e46]: •
+        - listitem [ref=f6e47]:
+          - generic [ref=f6e48]: "#"
+          - link "code" [ref=f6e49] [cursor=pointer]:
+            - /url: /blog/tag/code
+        - paragraph [ref=f6e50]: •
+        - listitem [ref=f6e51]:
+          - generic [ref=f6e52]: "#"
+          - link "blockquotes" [ref=f6e53] [cursor=pointer]:
+            - /url: /blog/tag/blockquotes
+        - paragraph [ref=f6e54]: •
+        - listitem [ref=f6e55]:
+          - generic [ref=f6e56]: 
+          - link "external-services" [ref=f6e57] [cursor=pointer]:
+            - /url: /blog/category/external-services
+      - list [ref=f6e58]:
+        - listitem [ref=f6e59]:
+          - heading [level=3] [ref=f6e60]:
+            - link "Taller \"Cinco pasos para hacer un análisis estadístico.\"" [ref=f6e61] [cursor=pointer]:
+              - /url: /blog/2025/Cinco-pasos-para-hacer-un-an%C3%A1lisis-estad%C3%ADstico/
+          - paragraph [ref=f6e62]: march & april, looking forward to summer
+          - paragraph [ref=f6e63]: 6 min read · March 03, 2025
+          - paragraph [ref=f6e64]:
+            - link " 2025" [ref=f6e65] [cursor=pointer]:
+              - /url: /blog/2025
+              - generic [ref=f6e66]: 
+              - text: "2025"
+            - text: ·
+            - link "# python" [ref=f6e67] [cursor=pointer]:
+              - /url: /blog/tag/python
+              - generic [ref=f6e68]: "#"
+              - text: python
+            - text: ·
+            - link " sample-posts" [ref=f6e69] [cursor=pointer]:
+              - /url: /blog/category/sample-posts
+              - generic [ref=f6e70]: 
+              - text: sample-posts
+  - contentinfo [ref=f6e71]:
+    - generic [ref=f6e72]:
+      - text: © Copyright 2026 Daniel Herrera. Powered by
+      - link "Jekyll" [ref=f6e73] [cursor=pointer]:
+        - /url: https://jekyllrb.com/
+      - text: with
+      - link "al-folio" [ref=f6e74] [cursor=pointer]:
+        - /url: https://github.com/alshedivat/al-folio
+      - text: theme. Hosted by
+      - link "GitHub Pages" [ref=f6e75] [cursor=pointer]:
+        - /url: https://pages.github.com/
+      - text: . Photos from
+      - link "Unsplash" [ref=f6e76] [cursor=pointer]:
+        - /url: https://unsplash.com
+      - text: .

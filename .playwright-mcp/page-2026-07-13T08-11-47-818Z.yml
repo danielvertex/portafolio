@@ -1,0 +1,115 @@
+- generic [active] [ref=f2e1]:
+  - banner:
+    - navigation [ref=f2e2]:
+      - generic [ref=f2e3]:
+        - link "Daniel Herrera" [ref=f2e4] [cursor=pointer]:
+          - /url: /
+        - list [ref=f2e6]:
+          - listitem [ref=f2e7]:
+            - link "about" [ref=f2e8] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f2e9]:
+            - link "blog" [ref=f2e10] [cursor=pointer]:
+              - /url: /blog/
+          - listitem [ref=f2e11]:
+            - link "projects (current)" [ref=f2e12] [cursor=pointer]:
+              - /url: /projects/
+              - text: projects
+              - generic [ref=f2e13]: (current)
+          - listitem [ref=f2e14]:
+            - button "submenus" [ref=f2e15] [cursor=pointer]
+          - listitem [ref=f2e16]:
+            - button "ctrl k " [ref=f2e17] [cursor=pointer]:
+              - generic [ref=f2e18]:
+                - text: ctrl k
+                - generic [ref=f2e19]: 
+          - listitem [ref=f2e20]:
+            - button "" [ref=f2e21] [cursor=pointer]:  
+    - progressbar [ref=f2e23]
+  - main [ref=f2e24]:
+    - generic [ref=f2e25]:
+      - generic [ref=f2e26]:
+        - heading "TICKER INFORMATION" [level=1] [ref=f2e27]
+        - paragraph [ref=f2e28]: CS50p FINALPROJECT
+      - article [ref=f2e29]:
+        - heading "TICKER INFORMATION" [level=1] [ref=f2e30]
+        - heading [level=4] [ref=f2e31]:
+          - text: "Video Demo:"
+          - link "here" [ref=f2e32] [cursor=pointer]:
+            - /url: https://youtu.be/z2xsYft5r74
+        - 'heading "Description: This program can graphically provide a 30-day period of adjusted closing price of two stocks as a PNG image and textual ticker information." [level=4] [ref=f2e33]'
+        - heading "USAGE" [level=2] [ref=f2e34]
+        - paragraph [ref=f2e35]: The way to choose the desired option is with up and down arrows.
+        - heading "MENU" [level=2] [ref=f2e36]
+        - heading "Option 1" [level=3] [ref=f2e37]
+        - heading "Compare graphically a period of 30 days of adjusted closing price of two actions" [level=4] [ref=f2e38]
+        - paragraph [ref=f2e39]:
+          - text: In this option, I decided to use regular expressions to continue in the program until the user enters the date as requested. This way, I could separate the entered data into groups and request it in an organized way from
+          - code [ref=f2e40]: yfinance
+          - text: . It also verifies the tickers entered because there are many that may be similar, have no information, or do not exist. At the end, it generates an image with a
+          - code [ref=f2e41]: .png
+          - text: extension.
+        - heading "Option 2" [level=3] [ref=f2e42]
+        - heading "Business Summary" [level=4] [ref=f2e43]
+        - paragraph [ref=f2e44]: You must enter a ticker for which it will print the company’s full name, sector, and a summary. If the ticker does not exist, it will ask for one again. If it exists but has no summary information, it will notify you.
+        - heading "APPROACH" [level=2] [ref=f2e45]
+        - paragraph [ref=f2e46]: I chose to use graphs and request data from a third party to process it. Then, I wanted to make it a bit more graphical and implement a small menu. Regular expressions came in handy to verify the data the user enters. This project helped me understand how to start a project, value the importance of reading documentation, and consider alternatives because there are multiple approaches to the same problem. It also allowed me to implement the knowledge acquired throughout the course.
+        - heading "Functions" [level=3] [ref=f2e47]
+        - heading [level=4] [ref=f2e48]:
+          - code [ref=f2e49]: main()
+        - paragraph [ref=f2e50]: Here, in addition to the main part of the program, you will find option 1 of the program.
+        - heading [level=4] [ref=f2e51]:
+          - code [ref=f2e52]: menu()
+        - paragraph [ref=f2e53]: The menu is located here and returns the user’s selection.
+        - heading [level=4] [ref=f2e54]:
+          - code [ref=f2e55]: menu_option2()
+        - paragraph [ref=f2e56]:
+          - text: Handles option 2 of the menu and also calls
+          - code [ref=f2e57]: ticker_validation()
+          - text: to validate.
+        - heading [level=4] [ref=f2e58]:
+          - code [ref=f2e59]: ticker_validation()
+        - paragraph [ref=f2e60]: Validates the entered ticker and handles possible errors, such as if the ticker does not exist.
+        - heading [level=4] [ref=f2e61]:
+          - code [ref=f2e62]: date_verification()
+        - paragraph [ref=f2e63]:
+          - text: Uses regular expressions and
+          - code [ref=f2e64]: datetime
+          - text: to validate the date entered and handle possible errors, such as dates that have not yet passed, dates that are too old, or dates that do not exist. This function calls the function
+          - strong [ref=f2e65]:
+            - code [ref=f2e66]: date_process()
+          - text: .
+        - heading [level=4] [ref=f2e67]:
+          - code [ref=f2e68]: date_process()
+        - paragraph [ref=f2e69]:
+          - text: Takes the date entered and standardizes it. Thus, in
+          - code [ref=f2e70]: main()
+          - text: ", option 1, you can set the 30-day period to do your processing."
+        - heading "Proyecto" [level=1] [ref=f2e71]
+        - generic [ref=f2e72]:
+          - code [ref=f2e74]: "import matplotlib.pyplot as plt import re import yfinance as yf from datetime import date, timedelta, datetime from simple_term_menu import TerminalMenu from colorama import Fore, Back, Style, init def main(): init(autoreset=True) while True: selection = menu() if selection == (\"1. Compare graphically a period of 30 days of adjusted closing price of two actions\"): gi_date = input( \"Type the year and the month you want YYYY-MM:\\n\") result, start_date = date_verification(gi_date) if result: ti_input = input(\"Insert the symbol of the first action:\\n\") success, ti_info, ti_input = ticker_validation(ti_input) while not success: ti_input = input(\"Invalid ticker, try again: \") success, ti_info, ti_input = ticker_validation(ti_input) try: input2 = input(\"Insert the symbol of the second action:\\n\") success2, ti_info2, input2 = ticker_validation(input2) while not success2: input2 = input(\"Invalid ticker, try again: \") success2, ti_info2, input2 = ticker_validation(input2) try: end_date = start_date + timedelta(days=30) tick1 = yf.Ticker(ti_input) tick2 = yf.Ticker(input2) info1 = tick1.info info2 = tick2.info plt.clf() try: lb1 = info1[\"shortName\"] except KeyError: print( Fore.RED + f\"No data found, ticker ({ti_input}) may be delisted\") try: lb2 = info2[\"shortName\"] except KeyError: print( Fore.RED + f\"No data found, ticker ({input2}) may be delisted\") try: history = tick1.history( start=start_date, end=end_date, raise_errors=True) plt.plot(history.index, history[\"Close\"], label=lb1) ticker1 = 1 plt.legend(loc=\"upper left\") plt.xlabel(\"Date\") plt.xticks(rotation=45) plt.ylabel(\"Price (USD)\") except (Exception, ValueError): print( Fore.YELLOW + f\"there are not aviable data for the ticker {ti_input} in the time solicitated\") ticker1 = 0 try: history2 = tick2.history( start=start_date, end=end_date, raise_errors=True) plt.plot(history2.index, history2[\"Close\"], label=lb2) ticker2 = 1 plt.legend(loc=\"upper left\") plt.xlabel(\"Date\") plt.xticks(rotation=45) plt.ylabel(\"Price (USD)\") except (Exception, ValueError): print( Fore.YELLOW + f\"there are not aviable data for the ticker {input2} in the time solicitated\") ticker2 = 0 #only hasthe second asked ticker if ticker1 == 1 and ticker2 == 0: plt.title( f\"{ti_info[\"shortName\"]} ({ti_info[\"symbol\"]})\") plt.savefig( \"result.png\", bbox_inches=\"tight\") print( Back.GREEN + \"Image genereted with 1 ticker 😐\\nImage saved as \\033[1;4mresult.png\\033\\n \") #only has the first ticker elif ticker1 == 0 and ticker2 == 1: plt.title( f\"{ti_info2['shortName']} ({ti_info2['symbol']})\") plt.savefig( \"result.png\", bbox_inches=\"tight\") print( Back.GREEN + \"Image genereted with 1 ticker 😐\\nImage saved as \\033[1;4mresult.png\\033\\n \") #no ticker elif ticker1 == 0 and ticker1 == 0: print(Back.YELLOW + \"No image generated ☹️\") else: plt.legend(loc=\"upper left\") plt.xlabel(\"Date\") plt.xticks(rotation=45) plt.ylabel(\"Price (USD)\") plt.title(f\"{ti_info['shortName']} ({ti_info['symbol']}) and { ti_info2['shortName']} ({ti_info2['symbol']})\") plt.savefig( \"result.png\", bbox_inches=\"tight\") print( Back.GREEN + \"Image succesfully genereted with 2 tickers😃\\nImage saved as \\033[1;4mresult.png\\033 \") except KeyError: print( Fore.YELLOW + \"One or both tickers do not have summary information\") except KeyError: print(Fore.YELLOW + \"One or both tickers do not have summary information\") if selection == \"2. Business Summary\": menu_option2() elif selection == \"Exit\": print(\"Bye bye ✌️\") break def menu(): options = [ \"1. Compare graphically a period of 30 days of adjusted closing price of two actions\", \"2. Business Summary\", \"Exit\", ] terminal_menu = TerminalMenu(options, title=\"Menu:\") menu_entry_index = terminal_menu.show() sele = options[menu_entry_index] return sele def menu_option2(): ti_input = input(\"Insert the symbol of action:\\n\") success, ti_info, ti_input = ticker_validation(ti_input) while not success: ti_input = input(\"Invalid ticker, try again: \") success, ti_info = ticker_validation(ti_input) try: print(Fore.BLUE + f\"{ti_info['longName']}\") print(\"\\033[1;4mSector:\\033[0m\", ti_info[\"sector\"]) print(\"\\033[1;4mSummary:\\033[0m\", ti_info[\"longBusinessSummary\"]) except KeyError: print(Fore.YELLOW + \"The ticker does not has summary information\") def ticker_validation(tic): while True: try: info = yf.Ticker(tic).info return True, info, tic except (ValueError, KeyError) as e: if \"No data found, symbol may be delisted\" in str(e): tic = input(\"Invalid ticker, try again: \") else: tic = input(\"Invalid ticker, try again: \") except Exception: tic = input(f\"The ticker probably does not exist, try other: \\n\") def date_verification(d): while True: today_d = datetime.today().strftime(\"%Y\") mistak = 0 try: while True: if match := re.search(r\"(\\d\\d\\d\\d)-(\\d\\d)\", d, re.IGNORECASE): if int(today_d) < int(match.group(1)): mistak = 1 raise ValueError start_date = date_process(match.group(1), match.group(2)) # print(match.group(1)) return True, start_date else: raise ValueError except ValueError: if mistak == 1: d = input(\"Ivalid Year or month. Tipe a valid date.\\n\") else: d = input(\"Ivalid date format. Please use YYYY-MM:\\n\") def date_process(year_str, month_str): year = int(year_str) month = int(month_str) day = 1 start_date = date(year, month, day) return start_date if __name__ == \"__main__\": main()"
+          - button "Copy code to clipboard" [ref=f2e75] [cursor=pointer]:
+            - generic [ref=f2e76]: 
+        - heading "Test para el projecto" [level=1] [ref=f2e77]
+        - generic [ref=f2e78]:
+          - code [ref=f2e80]: "from project import ticker_validation, date_verification, date_process from datetime import date import pytest def test_ticker_validation(): #si el ticker existe retorna true si no retorna False tic = \"gabagoo\" with pytest.raises(Exception): ticker_validation(tic) ti_input= \"ba\" success, ti_info, updated_ti_input = ticker_validation(ti_input) assert success is True def test_date_verification(): #si el formato de fecha es correcto, retorna True y start_date d = \"1999-01\" test_date = date(1999, 1, 1) result, start_date = date_verification(d) assert result is True assert start_date == test_date def test_date_process(): result = date_process(\"2023\", \"01\") assert result == date(2023, 1, 1) with pytest.raises(ValueError): date_process(\"2025\", \"17\") with pytest.raises(ValueError): date_process(\"asfgoga\", \"06\")"
+          - button "Copy code to clipboard" [ref=f2e81] [cursor=pointer]:
+            - generic [ref=f2e82]: 
+      - iframe [ref=f2e85]:
+        - main [ref=f3e3]:
+          - generic [ref=f3e4]: Loading comments…
+  - contentinfo [ref=f2e86]:
+    - generic [ref=f2e87]:
+      - text: © Copyright 2026 Daniel Herrera. Powered by
+      - link "Jekyll" [ref=f2e88] [cursor=pointer]:
+        - /url: https://jekyllrb.com/
+      - text: with
+      - link "al-folio" [ref=f2e89] [cursor=pointer]:
+        - /url: https://github.com/alshedivat/al-folio
+      - text: theme. Hosted by
+      - link "GitHub Pages" [ref=f2e90] [cursor=pointer]:
+        - /url: https://pages.github.com/
+      - text: . Photos from
+      - link "Unsplash" [ref=f2e91] [cursor=pointer]:
+        - /url: https://unsplash.com
+      - text: .

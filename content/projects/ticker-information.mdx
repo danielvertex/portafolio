@@ -1,0 +1,40 @@
+---
+title: "Ticker Information CLI"
+description: "Financial analysis tool built with Python and yfinance. Allows users to fetch stock data, validate tickers, and generate visual comparisons of two stocks."
+category: "Data"
+status: "Completed"
+github: "https://github.com/danielvertex/cs50p-project"
+---
+
+This project was built as the final assignment for Harvard's CS50P (Introduction to Programming with Python). It is a Command Line Interface (CLI) application that allows users to quickly gather and visualize financial data for publicly traded companies.
+
+## The Problem
+
+When analyzing stocks, I often found myself going to various websites just to check basic historical trends or compare two companies side-by-side. I wanted a lightweight, terminal-based tool to do this instantly without loading heavy web interfaces.
+
+## Features
+
+The application is entirely driven through the terminal and offers the following capabilities:
+
+- **Ticker Validation:** Verifies if a given stock ticker symbol exists on Yahoo Finance before attempting to pull data.
+- **Data Fetching:** Retrieves historical price data (Open, High, Low, Close, Volume) over customizable time periods (e.g., 1mo, 6mo, 1y, max).
+- **Comparative Visualization:** Takes two valid ticker symbols and generates a side-by-side line chart comparing their closing prices over the specified period.
+- **Exporting:** Saves the generated matplotlib charts as PNG files directly to the user's local directory.
+
+## Technical Implementation
+
+The tool relies heavily on the `yfinance` library to interact with the Yahoo Finance API. 
+
+**Structure:**
+The code is modularized into several functions to ensure testability:
+1.  `get_ticker_data()`: Handles the API call and basic error handling.
+2.  `validate_ticker()`: A fast check to ensure the symbol returns valid metadata.
+3.  `plot_comparison()`: Uses `matplotlib.pyplot` to format and generate the visual graph.
+
+**Testing:**
+As required by the CS50P specification, the project includes comprehensive unit tests (`test_project.py`) using the `pytest` framework to ensure that invalid inputs (like fake stock symbols) are handled gracefully without crashing the program.
+
+## Technologies Used
+- **Language:** Python
+- **Libraries:** `yfinance`, `matplotlib`, `pandas`, `pytest`
+- **Interface:** Command Line
