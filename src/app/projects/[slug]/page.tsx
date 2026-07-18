@@ -7,18 +7,31 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import { Metadata } from 'next';
+import GiscusComments from '@/components/GiscusComments';
 
 const components = {
   h1: (props: any) => <h1 className="text-3xl font-heading font-bold mt-12 mb-6 text-foreground" {...props} />,
   h2: (props: any) => <h2 className="text-2xl font-heading font-bold mt-10 mb-4 text-foreground border-b border-border pb-2" {...props} />,
   h3: (props: any) => <h3 className="text-xl font-heading font-semibold mt-8 mb-4 text-foreground" {...props} />,
-  p: (props: any) => <p className="text-muted leading-relaxed mb-6" {...props} />,
+  h4: (props: any) => <h4 className="text-lg font-heading font-semibold mt-6 mb-3 text-foreground" {...props} />,
+  p: (props: any) => <p className="text-muted leading-relaxed mb-6 text-justify" {...props} />,
   ul: (props: any) => <ul className="list-disc list-inside text-muted space-y-2 mb-6" {...props} />,
   ol: (props: any) => <ol className="list-decimal list-inside text-muted space-y-2 mb-6" {...props} />,
   li: (props: any) => <li className="leading-relaxed" {...props} />,
   a: (props: any) => <a className="text-accent hover:underline" target="_blank" rel="noopener noreferrer" {...props} />,
   strong: (props: any) => <strong className="font-semibold text-foreground" {...props} />,
+  em: (props: any) => <em className="italic text-muted" {...props} />,
   blockquote: (props: any) => <blockquote className="border-l-4 border-accent pl-4 italic text-muted my-6" {...props} />,
+  code: (props: any) => <code className="bg-surface px-1.5 py-0.5 rounded text-sm font-mono text-accent-violet" {...props} />,
+  pre: (props: any) => (
+    <pre className="bg-[#0d1117] border border-border rounded-lg p-4 overflow-x-auto mb-6 text-sm leading-relaxed" {...props} />
+  ),
+  img: (props: any) => (
+    <span className="block my-8">
+      <img className="rounded-lg border border-border max-w-full mx-auto" {...props} />
+      {props.alt && <span className="block text-center text-sm text-muted-2 mt-2 italic">{props.alt}</span>}
+    </span>
+  ),
 };
 
 interface Props {
@@ -130,6 +143,8 @@ export default async function ProjectPage({ params }: Props) {
       <article className="prose prose-invert max-w-none">
         <MDXRemote source={content} components={components} />
       </article>
+
+      <GiscusComments />
     </div>
   );
 }

@@ -6,11 +6,12 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from 'next';
+import GiscusComments from '@/components/GiscusComments';
 
 const components = {
   h1: (props: any) => <h1 className="text-3xl font-heading font-bold mt-10 mb-6 text-foreground" {...props} />,
   h2: (props: any) => <h2 className="text-2xl font-heading font-bold mt-10 mb-4 text-foreground" {...props} />,
-  p: (props: any) => <p className="text-muted leading-relaxed mb-6" {...props} />,
+  p: (props: any) => <p className="text-muted leading-relaxed mb-6 text-justify" {...props} />,
   ul: (props: any) => <ul className="list-disc list-inside text-muted space-y-2 mb-6" {...props} />,
   li: (props: any) => <li className="leading-relaxed" {...props} />,
 };
@@ -95,6 +96,8 @@ export default async function NotePage({ params }: Props) {
       <article className="prose prose-invert max-w-none">
         <MDXRemote source={content} components={components} />
       </article>
+
+      <GiscusComments />
     </div>
   );
 }

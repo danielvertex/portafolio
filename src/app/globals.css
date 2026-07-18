@@ -127,6 +127,13 @@ body {
   padding-bottom: 6rem;
 }
 
+/* ─── Justified text for content ─── */
+article p,
+.prose p {
+  text-align: justify;
+  hyphens: auto;
+}
+
 @media (max-width: 768px) {
   .section-padding {
     padding-top: 4rem;
