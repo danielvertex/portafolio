@@ -22,7 +22,7 @@ export function Certifications() {
               </h3>
               <p className="text-sm text-muted mb-4">Coursera • Issued 2024</p>
               <Link
-                href="#"
+                href="https://www.coursera.org/account/accomplishments/professional-cert/V7ZBV9IUKFAV"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
               >
                 View Credential <ExternalLink size={14} />
