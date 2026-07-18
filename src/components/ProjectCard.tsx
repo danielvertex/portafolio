@@ -26,13 +26,13 @@ export default function ProjectCard({
       href={`/projects/${slug}`}
       className="group block rounded-xl border border-border bg-surface glow-border flex flex-col h-full overflow-hidden hover:border-border-hover transition-colors"
     >
-      <div className="relative w-full aspect-video bg-background overflow-hidden border-b border-border/50">
+      <div className="relative w-full aspect-square bg-background overflow-hidden border-b border-border/50">
         <Image
           src={imageUrl}
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
           priority={false}
         />
       </div>
