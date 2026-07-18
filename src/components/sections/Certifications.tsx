@@ -30,11 +30,25 @@ export function Certifications() {
             </div>
           </div>
 
-          {/* Placeholder for future certs */}
-          <div className="p-6 rounded-xl border border-border border-dashed bg-transparent flex items-center justify-center text-center">
-            <p className="text-sm text-muted-2">
-              Currently preparing for new certifications in data and cloud architecture.
-            </p>
+          {/* CS50 Certification */}
+          <div className="p-6 rounded-xl border border-border bg-surface glow-border flex gap-4">
+            <div className="w-12 h-12 rounded-full bg-accent-blue/10 flex items-center justify-center shrink-0">
+              <Award className="text-accent-blue" size={24} />
+            </div>
+            <div>
+              <h3 className="font-heading font-semibold text-foreground mb-1">
+                CS50's Introduction to Programming with Python
+              </h3>
+              <p className="text-sm text-muted mb-4">CS50 • Issued Dec 2023 • ID: 0eeb79a0-7af9-4a9a-b389-2601a3bcbc43</p>
+              <Link
+                href="https://certificates.cs50.io/0eeb79a0-7af9-4a9a-b389-2601a3bcbc43.pdf?size=letter"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
+              >
+                View Credential <ExternalLink size={14} />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
